@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantis Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .split-screen {
+            display: flex;
+            height: 100vh;
+        }
+        .split {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+        .split:hover {
+            flex: 1.2;
+        }
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+        .button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <div class="split-screen">
+        <div class="split bg-white">
+            <img src="images/logo_atlantis-removebg-preview.png" alt="Atlantis Logo" class="logo">
+            <h2 class="text-2xl font-bold mb-4">Régie LED</h2>
+            <p class="text-gray-600 mb-6">Digital Brand Vision</p>
+            <a href="regie-led.html" class="button bg-blue-200 text-blue-800 hover:bg-blue-300">Découvrir nos écrans</a>
+        </div>
+        <div class="split bg-gray-200">
+            <img src="images/logo_atlantis_2-removebg-preview.png" alt="Atlantis Logo" class="logo">
+            <h2 class="text-2xl font-bold mb-4">Agence Digital</h2>
+            <p class="text-gray-600 mb-6">Digital Brand Vision</p>
+            <a href="digital_agency.html" class="button bg-gray-800 text-white hover:bg-gray-700">Explorer notre Univers</a>
+        </div>
+    </div>
+
+    <script>
+        const left = document.querySelector('.split:first-child');
+        const right = document.querySelector('.split:last-child');
+
+        left.addEventListener('mouseenter', () => {
+            left.style.flex = 1.2;
+            right.style.flex = 0.8;
+        });
+
+        right.addEventListener('mouseenter', () => {
+            right.style.flex = 1.2;
+            left.style.flex = 0.8;
+        });
+
+        document.querySelector('.split-screen').addEventListener('mouseleave', () => {
+            left.style.flex = 1;
+            right.style.flex = 1;
+        });
+    </script>
+</body>
+</html>

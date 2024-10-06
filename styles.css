@@ -1,0 +1,81 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.split-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    display: flex;
+}
+
+.split {
+    width: 50%;
+    height: 100%;
+    transition: all 0.3s ease;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.left {
+    background: url('oodh-bg.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.right {
+    background: url('digital-bg.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.centered {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #00a8ff, #0097e6);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 168, 255, 0.7);
+}
+
+.split:hover {
+    width: 55%;
+}
+
+.split:not(:hover) {
+    width: 45%;
+}

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantis - Agence Digital & Régie LED</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'atlantis-light': '#D9D9D9',
+                        'atlantis-dark': '#1E1E1E',
+                        'atlantis-blue': '#8ED2E9',
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+      @keyframes slide {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .slider {
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+      }
+
+      .slider-content {
+        display: inline-block;
+        animation: slide 30s linear infinite;
+      }
+
+      .slider-content:hover {
+        animation-play-state: paused;
+      }
+
+      /* Text animation */
+      .animate-text {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Fun hover effect for buttons */
+      .fun-hover {
+        transition: all 0.3s ease;
+      }
+
+      .fun-hover:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Space background */
+      .space-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 2s infinite ease-in-out;
+      }
+
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        animation: float 20s infinite ease-in-out;
+        opacity: 0.7;
+      }
+
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(10px, -15px) rotate(5deg); }
+        50% { transform: translate(20px, 0) rotate(0deg); }
+        75% { transform: translate(-10px, 15px) rotate(-5deg); }
+      }
+    </style>
+</head>
+<body class="bg-transparent text-atlantis-dark font-sans relative overflow-x-hidden">
+    <!-- Space background -->
+    <div class="space-bg" id="space-bg"></div>
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-10 px-4 py-4">
+        <nav class="bg-[#8ED2E9] rounded-full shadow-lg max-w-6xl mx-auto">
+            <div class="container mx-auto flex justify-between items-center px-12 py-3">
+                <img src="images/logo_atlantis_2-removebg-preview.png" alt="Atlantis Logo" class="w-10">
+                <div class="flex-grow flex justify-center space-x-6">
+                    <a href="#services" class="text-atlantis-dark hover:text-white transition duration-300">Services</a>
+                    <a href="#portfolio" class="text-atlantis-dark hover:text-white transition duration-300">Portfolio</a>
+                    <a href="#contact" class="text-atlantis-dark hover:text-white transition duration-300">Contact</a>
+                </div>
+                <a href="#contact" class="bg-atlantis-dark text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition duration-300">Contactez-nous</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex items-center justify-center bg-transparent text-atlantis-dark pt-28 px-4 relative">
+        <div class="text-center max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-text" style="animation-delay: 0.2s;">Réinventons votre présence digitale, une expérience à la fois.</h1>
+            <p class="text-lg md:text-xl mb-10 animate-text" style="animation-delay: 0.4s;">Nous transformons vos idées en expériences digitales uniques.</p>
+            <div class="space-x-4 animate-text" style="animation-delay: 0.6s;">
+                <a href="#services" class="bg-atlantis-blue text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300 fun-hover">Nos Services</a>
+                <a href="#contact" class="bg-transparent border-2 border-atlantis-blue text-atlantis-blue px-6 py-3 rounded-full hover:bg-atlantis-blue hover:text-white transition duration-300 fun-hover">Contactez-nous</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 bg-transparent text-atlantis-dark min-h-screen flex items-center">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2 space-y-16">
+                    <h2 class="text-4xl font-bold animate-on-scroll">Notre Transformation laissera la Marque !</h2>
+                    <p class="text-lg">
+                        Laissez-nous vous guider dans cette aventure de transformation, où chaque détail compte et où chaque interaction renforce votre identité. Ensemble, nous ferons en sorte que votre marque ne soit pas seulement vue, mais inoubliable.
+                    </p>
+                    <div>
+                        <a href="#contact" class="inline-flex items-center bg-atlantis-dark text-atlantis-light px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">
+                            Commencer dès maintenant
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-atlantis-blue p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">Design Graphique</h3>
+                        <p>Donnez vie à votre marque avec des visuels percutants et une identité visuelle cohérente.</p>
+                    </div>
+                    <div class="bg-atlantis-light p-6 rounded-lg hover:shadow-lg transition duration-300">
+                        <h3 class="text-xl font-semibold mb-3">Marketing Digital</h3>
+                        <p>Attirez, engagez et convertissez grâce à des stratégies marketing personnalisées, adaptées à votre audience.</p>
+                    </div>
+                    <div class="bg-atlantis-light p-6 rounded-lg hover:shadow-lg transition duration-300">
+                        <h3 class="text-xl font-semibold mb-3">Consultation Digitale</h3>
+                        <p>Optimisez votre stratégie digitale avec nos conseils d'experts pour maximiser votre retour sur investissement.</p>
+                    </div>
+                    <div class="bg-atlantis-blue p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">Développement Web</h3>
+                        <p>Créez des sites web dynamiques et réactifs qui captivent vos utilisateurs et boostent votre visibilité en ligne.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-transparent mb-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-atlantis-dark mb-16">Nos réalisations Créatives</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-atlantis-light rounded-lg overflow-hidden shadow-lg">
+                    <img src="images/image.png" alt="Projet 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2">Refonte Site E-commerce</h3>
+                        <p class="text-atlantis-dark">Modernisation complète d'une plateforme de vente en ligne</p>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-atlantis-light rounded-lg overflow-hidden shadow-lg">
+                    <img src="images/image copy.png" alt="Projet 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2">Application Mobile Fitness</h3>
+                        <p class="text-atlantis-dark">Développement d'une app de suivi d'entraînement personnalisé</p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-atlantis-light rounded-lg overflow-hidden shadow-lg">
+                    <img src="images/image copy 4.png" alt="Projet 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2">Campagne Marketing Digital</h3>
+                        <p class="text-atlantis-dark">Stratégie multicanale pour le lancement d'un nouveau produit</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-atlantis-blue text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">Découvrir plus</a>
+            </div>
+        </div>
+        <div class="container mx-auto mt-16">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-atlantis-dark mb-8">Ils nous font confiance</h2>
+                <div class="slider mt-12">
+                  <div class="slider-content">
+                    <!-- Replace these with your actual client logos -->
+                    <div class="inline-block mx-8">
+                      <img src="images/logos/azalai.png" alt="Client 1" class="h-16">
+                    </div>
+                    <div class="inline-block mx-8">
+                      <img src="images/logos/boa.png" alt="Client 2" class="h-16">
+                    </div>
+                    <div class="inline-block mx-8">
+                      <img src="images/logos/sens_de_marrakech.png" alt="Client 3" class="h-16">
+                    </div>
+                    <div class="inline-block mx-8">
+                      <img src="images/logos/shell.png" alt="Client 4" class="h-16">
+                    </div>
+                    <!-- Duplicate logos for continuous sliding effect -->
+                    <div class="inline-block mx-8">
+                      <img src="images/logos/vivo_energy.png" alt="Client 1" class="h-16">
+                    </div>
+                    <div class="inline-block mx-8">
+                      <img src="images/logos/madar.png" alt="Client 2" class="h-16">
+                    </div>
+                    <div class="inline-block mx-8">
+                      <img src="images/logos/dunia.png" alt="Client 3" class="h-16">
+                    </div>
+                    <div class="inline-block mx-8">
+                      <img src="images/logos/nsia.png" alt="Client 4" class="h-16">
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-transparent">
+            <div class="container mx-auto mt-16">
+                <div class="bg-atlantis-blue bg-opacity-90 rounded-3xl shadow-2xl p-8 md:p-12 max-w-6xl mx-auto">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/2 pr-8">
+                            <h2 class="text-3xl font-bold text-white mb-4 mt-12">Commençons dès maintenant</h2>
+                            <p class="text-atlantis-dark mb-6 mt-6">Nous sommes là pour répondre à toutes vos questions et vous aider dans vos projets. N'hésitez pas à nous contacter pour en savoir plus sur nos services ou pour discuter de votre prochain projet.</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <form class="mt-6 md:mt-0">
+                                <div class="mb-6">
+                                    <input type="text" placeholder="Nom" class="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-atlantis-blue focus:bg-white focus:ring-0">
+                                </div>
+                                <div class="mb-6">
+                                    <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-atlantis-blue focus:bg-white focus:ring-0">
+                                </div>
+                                <div class="mb-6">
+                                    <textarea placeholder="Message" rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-atlantis-blue focus:bg-white focus:ring-0"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-atlantis-dark text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition duration-300">Envoyer</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-atlantis-blue bg-opacity-90 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Mali Contact -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Mali</h3>
+                    <p class="mb-2">123 Rue du Commerce, Bamako</p>
+                    <p class="mb-2">Téléphone: +223 20 12 34 56</p>
+                    <p>Email: contact.mali@atlantis.com</p>
+                </div>
+                <!-- Senegal Contact -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Sénégal</h3>
+                    <p class="mb-2">456 Avenue de l'Indépendance, Dakar</p>
+                    <p class="mb-2">Téléphone: +221 33 123 45 67</p>
+                    <p>Email: contact.senegal@atlantis.com</p>
+                </div>
+            </div>
+            <div class="mt-16 mb-2 text-center">
+                <p class="text-black">&copy; 2023 Atlantis. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      function createSpaceBackground() {
+        const spaceBg = document.getElementById('space-bg');
+        const starCount = 100;
+        const bubbleCount = 15;
+
+        // Create stars
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement('div');
+          star.classList.add('star');
+          star.style.left = `${Math.random() * 100}vw`;
+          star.style.top = `${Math.random() * 100}vh`;
+          star.style.width = `${Math.random() * 2 + 1}px`;
+          star.style.height = star.style.width;
+          star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+          star.style.animationDelay = `${Math.random() * 2}s`;
+          spaceBg.appendChild(star);
+        }
+
+        // Create bubbles
+        const bubbleColors = ['#8ED2E9', '#A0A0A0', '#C0C0C0', '#E0E0E0'];
+        for (let i = 0; i < bubbleCount; i++) {
+          const bubble = document.createElement('div');
+          bubble.classList.add('bubble');
+          bubble.style.left = `${Math.random() * 100}vw`;
+          bubble.style.top = `${Math.random() * 100}vh`;
+          bubble.style.width = `${Math.random() * 100 + 50}px`;
+          bubble.style.height = bubble.style.width;
+          bubble.style.backgroundColor = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
+          bubble.style.animationDuration = `${Math.random() * 10 + 15}s`;
+          bubble.style.animationDelay = `${Math.random() * 5}s`;
+          spaceBg.appendChild(bubble);
+        }
+      }
+
+      // Animate elements on scroll
+      function animateOnScroll() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-text');
+            }
+          });
+        }, { threshold: 0.1 });
+
+        elements.forEach(element => {
+          observer.observe(element);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        createSpaceBackground();
+        animateOnScroll();
+      });
+    </script>
+</body>
+</html>
